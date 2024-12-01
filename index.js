@@ -14,15 +14,6 @@ const USERS_FILE = '/tmp/users.json';
 app.use(bodyParser.json());
 app.use(cors({ origin: 'http://localhost:5173' }));
 
-function authenticateToken(req, res, next) {
-  const token = req.headers["authorization"];
-  if (!token) return res.sendStatus(401);
-  jwt.verify(token, SECRET_KEY, (err, user) => {
-    if (err) return res.sendstatus(403);
-    req.user = user;
-    next();
-  });
-}
 function ensureUsersFile() {
     if (!fs.existsSync(USERS_FILE)) {
         fs.writeFileSync(USERS_FILE, JSON.stringify([]));
@@ -32,9 +23,6 @@ app.get('/',(req, res)=>{
   res.send('Welcome to jwt auth and file handling');
   res.end();
 })
-
-
-
 
 app.use(express.json());
 
