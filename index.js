@@ -11,7 +11,24 @@ const PORT = 5000;
 
 
 app.use(bodyParser.json());
-app.use(cors({ origin: 'https://transcendent-cupcake-d74797.netlify.app/'}));
+
+// Replace with your frontend's URL
+const allowedOrigins = [
+  'https://transcendent-cupcake-d74797.netlify.app', 
+  'http://localhost:5173' // For local development
+];
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+  })
+);
 
 function ensureUsersFile() {
     if (!fs.existsSync(USERS_FILE)) {
