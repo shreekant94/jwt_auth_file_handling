@@ -111,7 +111,7 @@ app.post('/save', authenticateToken, (req, res) => {
 
 // Protected Route to Read Data
 app.get('/read', authenticateToken, (req, res) => {
-    const filePath = path.join('/tmp', 'data.json');
+    const filePath = path.join('/tmp', 'users.json');
     if (!fs.existsSync(filePath)) {
         return res.status(404).send('No data found');
     }
