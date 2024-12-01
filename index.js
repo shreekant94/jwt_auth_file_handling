@@ -33,13 +33,9 @@ app.get('/',(req, res)=>{
   res.end();
 })
 
-const path = require('path');
-const fs = require('fs');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const express = require('express');
 
-const app = express();
+
+
 app.use(express.json());
 
 const SECRET_KEY = 'your_secret_key';
