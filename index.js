@@ -12,7 +12,7 @@ const SECRET_KEY = "mysecretkey";
 const USERS_FILE = '/tmp/users.json';
 
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors({ origin: 'http://localhost:5173' }));
 
 function authenticateToken(req, res, next) {
   const token = req.headers["authorization"];
