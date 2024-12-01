@@ -23,6 +23,10 @@ function authenticateToken(req, res, next) {
   });
 }
 
+app.get('/',(req, res)=>{
+  res.send('Welcome to jwt auth and file handling');
+  res.end();
+})
 // Registration Route
 app.post("/register", (req, res) => {
   const { username, password } = req.body;
