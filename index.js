@@ -8,8 +8,7 @@ const cors = require("cors");
 const app = express();
 
 const PORT = 5000;
-const SECRET_KEY = "mysecretkey";
-const USERS_FILE = '/tmp/users.json';
+
 
 app.use(bodyParser.json());
 app.use(cors({ origin: 'http://localhost:5173' }));
