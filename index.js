@@ -11,7 +11,7 @@ const PORT = 5000;
 
 
 app.use(bodyParser.json());
-app.use(cors({ origin: 'http://localhost:5173' }));
+app.use(cors({ origin: 'https://transcendent-cupcake-d74797.netlify.app/'}));
 
 function ensureUsersFile() {
     if (!fs.existsSync(USERS_FILE)) {
